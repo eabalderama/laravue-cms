@@ -21,7 +21,7 @@ const focused = ref(false);
                         ? 'translate-x-0'
                         : '-translate-x-full'
                 "
-                class="sm:hidden w-screen h-screen fixed transition duration-300 ease-in-out"
+                class="md:hidden w-screen h-screen fixed transition duration-300 ease-in-out"
             >
                 <div
                     class="absolute w-full h-full backdrop-blur transition delay-300"

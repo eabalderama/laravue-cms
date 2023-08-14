@@ -17,17 +17,20 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
-Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/tourist-spots', function() {
+    return Inertia::render('Spots');
+})->middleware(['auth', 'verified'])->name('spots');
+
+Route::get('/events', function() {
+    return Inertia::render('Events');
+})->middleware(['auth', 'verified'])->name('events');
+
+Route::get('/organizations', function() {
+    return Inertia::render('Organizations');
+})->middleware(['auth', 'verified'])->name('organizations');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

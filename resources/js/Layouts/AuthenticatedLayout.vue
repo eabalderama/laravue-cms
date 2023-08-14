@@ -35,11 +35,11 @@ const focused = ref(false);
                     "
                 ></div>
                 <div
-                    class="w-3/5 px-3 py-6 relative h-screen bg-gray-400 border-r border-gray-300"
+                    class="flex flex-col w-3/5 px-3 py-6 relative h-screen bg-gray-400 border-r border-gray-300"
                 >
                     <div
                         :class="focused ? 'bg-gray-100' : 'bg-gray-200'"
-                        class="flex items-center flex-1 md:flex-none w-full shadow-md px-3 rounded-md transition ease-out duration-200"
+                        class="flex items-center md:flex-none w-full shadow-md px-3 rounded-md transition ease-out duration-200"
                     >
                         <v-icon name="fa-search" fill="#6b7280" scale="1.2" />
                         <input
@@ -51,7 +51,7 @@ const focused = ref(false);
                             @blur="focused = false"
                         />
                     </div>
-                    <div class="mt-8 gap-3 flex flex-col">
+                    <div class="mt-8 gap-3 flex flex-col flex-1">
                         <Link
                             :href="route('dashboard')"
                             class="inline-flex gap-5 items-center px-1 pt-1 text-xl"
@@ -64,33 +64,70 @@ const focused = ref(false);
                             <v-icon name="fa-home" scale="1.5" />
                             <span>Dashboard</span>
                         </Link>
-                        <div>
-                            <NavLink
-                                :href="route('spots')"
-                                :active="route().current('spots')"
-                                :icon="'fa-map-marked-alt'"
-                            >
-                                Tourist Spots
-                            </NavLink>
-                        </div>
-                        <div>
-                            <NavLink
-                                :href="route('events')"
-                                :active="route().current('events')"
-                                :icon="'fa-calendar-alt'"
-                            >
-                                Events
-                            </NavLink>
-                        </div>
-                        <div>
-                            <NavLink
-                                :href="route('organizations')"
-                                :active="route().current('organizations')"
-                                :icon="'fa-network-wired'"
-                            >
-                                Organizations
-                            </NavLink>
-                        </div>
+                        <Link
+                            :href="route('spots')"
+                            class="inline-flex gap-5 items-center px-1 pt-1 text-xl"
+                            :class="
+                                route().current('spots')
+                                    ? 'text-gray-900'
+                                    : 'text-gray-500'
+                            "
+                        >
+                            <v-icon name="fa-map-marked-alt" scale="1.5" />
+                            <span>Tourist Spots</span>
+                        </Link>
+                        <Link
+                            :href="route('events')"
+                            class="inline-flex gap-5 items-center px-1 pt-1 text-xl"
+                            :class="
+                                route().current('events')
+                                    ? 'text-gray-900'
+                                    : 'text-gray-500'
+                            "
+                        >
+                            <v-icon name="fa-calendar-alt" scale="1.5" />
+                            <span>Events</span>
+                        </Link>
+                        <Link
+                            :href="route('organizations')"
+                            class="inline-flex gap-5 items-center px-1 pt-1 text-xl"
+                            :class="
+                                route().current('organizations')
+                                    ? 'text-gray-900'
+                                    : 'text-gray-500'
+                            "
+                        >
+                            <v-icon name="fa-network-wired" scale="1.5" />
+                            <span>Organizations</span>
+                        </Link>
+                    </div>
+                    <hr />
+                    <div class="flex flex-col gap-3 py-2">
+                        <Link
+                            :href="route('profile.edit')"
+                            class="inline-flex gap-5 items-center px-1 pt-1 text-xl"
+                            :class="
+                                route().current('profile.edit')
+                                    ? 'text-gray-900'
+                                    : 'text-gray-500'
+                            "
+                        >
+                            <v-icon name="fa-user-circle" scale="1.5" />
+                            <span>Profile</span>
+                        </Link>
+                        <Link
+                            :href="route('logout')"
+                            method="post"
+                            as="button"
+                            class="inline-flex gap-5 text-gray-500 items-center px-1 pt-1 text-xl"
+                        >
+                            <v-icon
+                                name="fa-sign-out-alt"
+                                class="rotate-180"
+                                scale="1.5"
+                            />
+                            <span>Logout</span>
+                        </Link>
                     </div>
                 </div>
             </div>

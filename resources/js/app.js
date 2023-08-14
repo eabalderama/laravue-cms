@@ -12,6 +12,7 @@ import {
     FaNetworkWired,
     FaSearch,
     FaUserCircle,
+    FaSignOutAlt,
 } from "oh-vue-icons/icons";
 import { OhVueIcon, addIcons } from "oh-vue-icons";
 
@@ -21,7 +22,8 @@ addIcons(
     FaCalendarAlt,
     FaNetworkWired,
     FaSearch,
-    FaUserCircle
+    FaUserCircle,
+    FaSignOutAlt
 );
 
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
